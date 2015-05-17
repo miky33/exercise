@@ -15,7 +15,6 @@ public class solution1 {
 		Scanner sc = new Scanner("4 15.00 15.01 3.00 3.01 0");
 		//Scanner sc = new Scanner("3 10.00 20.00 30.00 0");
 		      		
-		
 		int N = sc.nextInt(); //ÀÎ¿ø¼ö
 		BigDecimal[] people = new BigDecimal[N];
 		BigDecimal sum = new BigDecimal(0);
@@ -32,24 +31,24 @@ public class solution1 {
 		}
 
 		if(sc.nextInt() == 0){
-			 avg = sum.divide(BigDecimal.valueOf(N)).setScale(2, RoundingMode.DOWN);//Æò±Õ
+			 //Æò±Õ
+			 avg = sum.divide(BigDecimal.valueOf(N)).setScale(2, RoundingMode.DOWN);
 	    }  
 		System.out.println("Æò±Õ: "+avg+":"+ N);
 
 		
 		for (int  test_case = 0 ; test_case < N ; test_case++){
-		    diffVal = people[test_case].subtract(avg);//.setScale(0, RoundingMode.DOWN);
+		    diffVal = people[test_case].subtract(avg);
             if(diffVal.compareTo(new BigDecimal(0)) < 0){            	
-            diffVal = diffVal.multiply(new BigDecimal(-1));
+            	diffVal = diffVal.multiply(new BigDecimal(-1));
             }
     		System.out.println("#°úÁ¤: "+test_case+":"+ diffVal);
 
-		    	answer=answer.add(diffVal);
+    		answer = answer.add(diffVal);
 		   
 		}
-		answer=answer.divide(new BigDecimal(2));
+		answer = answer.divide(new BigDecimal(2));
 		
 		System.out.println("#SOLUTION 1 diffVal : "+ answer);
 	}
-
 }
