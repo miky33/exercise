@@ -6,6 +6,7 @@ public class solution1_1 {
 
     final private static String _problem1 = "3 10 20 30 0";
     final private static String _problem2 = "4 15.00 15.01 3.00 3.01 0";
+    final private static String _problem3 = "7 30 1 2 1 3 4 3 0";
 
     public static void main(String[] args) throws Exception {
         float moneyTransferred = Solve(_problem2);
@@ -54,7 +55,9 @@ public class solution1_1 {
             System.out.format("user %d needTransfer : %d\n", i, needTransfer);
         }
 
-        // 2. if the people who already paid above
+        // 2. if the people who already paid above minimum payment is larger than remainings,
+        // remaining money does not need to be transferred.
+        // but otherwise, money should be transferred to the people below minimum payment.
         if (remains > numAlreadyPaidAboveMin) {
             int needToTransfer = remains - numAlreadyPaidAboveMin;
             totalTransferred += needToTransfer;
